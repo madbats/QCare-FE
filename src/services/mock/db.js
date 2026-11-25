@@ -4,16 +4,10 @@
 // Data disimpan di localStorage agar tetap ada setelah halaman di-refresh.
 // =====================================================================
 
-<<<<<<< HEAD
 import { nextDatesForHari, todayJakarta, hariDariTanggal, addDays } from '../../utils/format';
 import { STATUS } from '../../constants/queue';
 
 const DB_KEY = 'qcare_mock_db_v3';
-=======
-import { nextDatesForHari } from '../../utils/format';
-
-const DB_KEY = 'qcare_mock_db_v2';
->>>>>>> 70022d6b3150e76b505d0f2f72b76916f9069b73
 
 // Jadwal Sabtu Poli Penyakit Dalam (kuota 2) dibuat penuh pada Sabtu terdekat
 // untuk menguji cabang "kuota penuh".
@@ -27,22 +21,14 @@ const fullQuota = (startId) => {
     dokter_id: 3,
     jadwal_dokter_id: 7,
     admin_id: null,
-<<<<<<< HEAD
     nomor_antrean: `A00${i + 1}`,
     tanggal_kunjungan: sabtu,
     kategori_pasien: 'BPJS',
     status_antrean: STATUS.MENUNGGU,
-=======
-    nomor_antrean: `C-00${i + 1}`,
-    tanggal_kunjungan: sabtu,
-    kategori_pasien: 'BPJS',
-    status_antrean: 'menunggu',
->>>>>>> 70022d6b3150e76b505d0f2f72b76916f9069b73
     created_at: new Date().toISOString(),
   }));
 };
 
-<<<<<<< HEAD
 // Antrean hari ini (untuk layar admin) memakai jadwal yang praktik hari ini.
 const todayQueues = (startId, jadwalList, riwayat) => {
   const today = todayJakarta();
@@ -119,9 +105,6 @@ const pastQueues = (startId, riwayat) => {
 };
 
 const baseSeed = () => ({
-=======
-const seed = () => ({
->>>>>>> 70022d6b3150e76b505d0f2f72b76916f9069b73
   fasilitas_kesehatan: [
     {
       id: 1,
@@ -228,7 +211,6 @@ const seed = () => ({
       kategori_pasien: 'BPJS',
       kebutuhan_khusus: 'Kelompok: Lansia; Kursi roda',
     },
-<<<<<<< HEAD
     // Pasien yang didaftarkan petugas loket (tanpa akun login)
     { id: 3, nama_pasien: 'Siti Rahmawati', email: null, password: null, tanggal_lahir: '1994-05-19', jenis_kelamin: 'Perempuan', no_telepon: '0813-9012-4411', alamat: 'Jl. Dharmahusada No. 42, Surabaya', kategori_pasien: 'BPJS', kebutuhan_khusus: 'Kelompok: Ibu Hamil; Pendampingan petugas; Kursi tunggu prioritas (trimester 2)' },
     { id: 4, nama_pasien: 'Budi Santoso', email: null, password: null, tanggal_lahir: '1988-11-22', jenis_kelamin: 'Laki-laki', no_telepon: '0856-4421-9800', alamat: 'Jl. Manyar Kertoarjo No. 7, Surabaya', kategori_pasien: 'Umum', kebutuhan_khusus: null },
@@ -240,8 +222,6 @@ const seed = () => ({
     { id: 1, nama_admin: 'Nadia Kusuma', email: 'nadia.admin@qcare.id', password: 'admin123', role: 'admin', created_at: '2026-01-12T02:00:00.000Z' },
     { id: 2, nama_admin: 'Fajar Ramadhan', email: 'fajar.loket@qcare.id', password: 'admin123', role: 'admin', created_at: '2026-02-04T02:00:00.000Z' },
     { id: 3, nama_admin: 'Rina Marlina', email: 'rina.loket@qcare.id', password: 'admin123', role: 'admin', created_at: '2026-03-18T02:00:00.000Z' },
-=======
->>>>>>> 70022d6b3150e76b505d0f2f72b76916f9069b73
   ],
   antrean: [
     {
@@ -252,17 +232,10 @@ const seed = () => ({
       dokter_id: 6,
       jadwal_dokter_id: 14,
       admin_id: null,
-<<<<<<< HEAD
       nomor_antrean: 'A004',
       tanggal_kunjungan: '2026-11-03',
       kategori_pasien: 'Umum',
       status_antrean: STATUS.SELESAI,
-=======
-      nomor_antrean: 'B-004',
-      tanggal_kunjungan: '2026-11-03',
-      kategori_pasien: 'Umum',
-      status_antrean: 'selesai',
->>>>>>> 70022d6b3150e76b505d0f2f72b76916f9069b73
       created_at: '2026-11-02T09:12:00.000Z',
     },
     {
@@ -273,17 +246,10 @@ const seed = () => ({
       dokter_id: 1,
       jadwal_dokter_id: 2,
       admin_id: null,
-<<<<<<< HEAD
       nomor_antrean: 'A011',
       tanggal_kunjungan: '2026-11-12',
       kategori_pasien: 'Umum',
       status_antrean: STATUS.DIBATALKAN,
-=======
-      nomor_antrean: 'A-011',
-      tanggal_kunjungan: '2026-11-12',
-      kategori_pasien: 'Umum',
-      status_antrean: 'dibatalkan',
->>>>>>> 70022d6b3150e76b505d0f2f72b76916f9069b73
       created_at: '2026-11-10T02:40:00.000Z',
     },
     ...fullQuota(3),
@@ -292,7 +258,6 @@ const seed = () => ({
   password_reset_otps: [],
 });
 
-<<<<<<< HEAD
 const seed = () => {
   const db = baseSeed();
   const riwayat = [];
@@ -304,8 +269,6 @@ const seed = () => {
   return db;
 };
 
-=======
->>>>>>> 70022d6b3150e76b505d0f2f72b76916f9069b73
 let cache = null;
 
 export const getDB = () => {

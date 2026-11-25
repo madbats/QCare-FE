@@ -15,7 +15,6 @@ import Register from '../pages/Register';
 import ForgotPassword from '../pages/ForgotPassword';
 import NotFound from '../pages/NotFound';
 
-<<<<<<< HEAD
 // ---- Portal admin ----
 import AdminLayout, { AdminBlank } from '../admin/AdminLayout';
 import AdminLogin from '../admin/pages/AdminLogin';
@@ -93,13 +92,6 @@ export const router = createBrowserRouter([
     ],
   },
   {
-=======
-// Data API dikelola Redux (createAsyncThunk), bukan Router loader,
-// agar tidak ada dua sumber pengelolaan data.
-// Catatan: rute admin akan ditambahkan terpisah (mis. /admin/*).
-export const router = createBrowserRouter([
-  {
->>>>>>> 70022d6b3150e76b505d0f2f72b76916f9069b73
     path: '/',
     element: <RootLayout />,
     errorElement: <ErrorBoundary />,

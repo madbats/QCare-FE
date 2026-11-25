@@ -3,10 +3,7 @@ import { api, getError } from '../../services/api';
 import { USE_MOCK } from '../../config/env';
 import { queueHistory } from '../../utils/storage';
 import { unwrapRow, isActiveStatus } from '../../utils/queue';
-<<<<<<< HEAD
 import { STATUS } from '../../constants/queue';
-=======
->>>>>>> 70022d6b3150e76b505d0f2f72b76916f9069b73
 
 // POST /antrean -> buat antrean (pasien_id diambil backend dari token)
 export const createQueue = createAsyncThunk('queue/create', async (payload, thunkAPI) => {
@@ -45,19 +42,11 @@ export const fetchQueueProgress = createAsyncThunk('queue/progress', async (id, 
   }
 });
 
-<<<<<<< HEAD
 // PUT /antrean/:id { status_antrean: 'Dibatalkan' } -> pasien membatalkan antrean
 export const cancelQueue = createAsyncThunk('queue/cancel', async (id, thunkAPI) => {
   try {
     const response = await api.put(`/antrean/${id}`, { status_antrean: STATUS.DIBATALKAN });
     return unwrapRow(response.data.data) ?? { id, status_antrean: STATUS.DIBATALKAN };
-=======
-// PUT /antrean/:id { status_antrean: 'dibatalkan' } -> pasien membatalkan antrean
-export const cancelQueue = createAsyncThunk('queue/cancel', async (id, thunkAPI) => {
-  try {
-    const response = await api.put(`/antrean/${id}`, { status_antrean: 'dibatalkan' });
-    return unwrapRow(response.data.data) ?? { id, status_antrean: 'dibatalkan' };
->>>>>>> 70022d6b3150e76b505d0f2f72b76916f9069b73
   } catch (error) {
     return thunkAPI.rejectWithValue(getError(error));
   }
