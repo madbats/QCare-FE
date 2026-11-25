@@ -20,7 +20,10 @@ export const KELOMPOK_PASIEN = [
   { value: 'Umum', label: 'Umum', desc: 'Pasien dewasa tanpa prioritas khusus' },
   { value: 'Anak', label: 'Anak', desc: 'Di bawah 18 tahun, didampingi orang tua/wali' },
   { value: 'Lansia', label: 'Lansia', desc: 'Usia 60 tahun ke atas, mendapat prioritas' },
+<<<<<<< HEAD
   { value: 'Ibu Hamil', label: 'Ibu Hamil', desc: 'Mendapat prioritas & kursi tunggu khusus' },
+=======
+>>>>>>> 70022d6b3150e76b505d0f2f72b76916f9069b73
   { value: 'Disabilitas', label: 'Disabilitas', desc: 'Mendapat prioritas & pendampingan' },
 ];
 
