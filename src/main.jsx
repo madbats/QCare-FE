@@ -7,11 +7,8 @@ import { store } from './app/store';
 import { router } from './router';
 import { setUnauthorizedHandler } from './services/api';
 import { sessionExpired } from './features/auth/authSlice';
-<<<<<<< HEAD
 import { setAdminUnauthorizedHandler } from './admin/api';
 import { adminSessionExpired } from './admin/store/adminAuthSlice';
-=======
->>>>>>> 70022d6b3150e76b505d0f2f72b76916f9069b73
 import './index.css';
 
 // Token kedaluwarsa / tidak valid -> keluar otomatis & arahkan ke /masuk.
@@ -22,7 +19,6 @@ setUnauthorizedHandler(() => {
   }
 });
 
-<<<<<<< HEAD
 // Token admin kedaluwarsa -> keluar dari portal admin saja.
 setAdminUnauthorizedHandler(() => {
   if (store.getState().adminAuth.admin) {
@@ -31,8 +27,6 @@ setAdminUnauthorizedHandler(() => {
   }
 });
 
-=======
->>>>>>> 70022d6b3150e76b505d0f2f72b76916f9069b73
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>

@@ -1,15 +1,9 @@
-<<<<<<< HEAD
 # QCare — Frontend Pasien & Portal Admin (React)
 
 Website responsive QCare dalam satu project:
 
 - **Portal pasien** (`/`): daftar akun, ambil nomor antrean online, pantau status antrean, lihat riwayat, dan kelola profil.
 - **Portal admin** (`/admin`): kelola antrean real-time (panggil → layani → selesai), registrasi pasien di loket, jadwal & kuota dokter, data pasien, dokter, layanan, fasilitas, riwayat (ekspor CSV), dan akun admin. Detail di bagian [Portal admin](#portal-admin).
-=======
-# QCare — Frontend Pasien (React)
-
-Website responsive untuk **pasien** QCare: daftar akun, ambil nomor antrean online, pantau status antrean, lihat riwayat, dan kelola profil. Bagian admin dibuat terpisah (menyusul).
->>>>>>> 70022d6b3150e76b505d0f2f72b76916f9069b73
 
 - **Stack:** React 19 + Vite, Redux Toolkit (`createAsyncThunk`), React Router v7 (data router), Axios.
 - **Arsitektur:** mengikuti materi *React Redux State Management*: store → slice → thunk → Axios instance + interceptor, `ProtectedRoute`, `ErrorBoundary`, bootstrap sesi sekali di `RootLayout`.
@@ -25,7 +19,6 @@ npm run dev        # http://localhost:5173
 npm run build      # hasil di folder dist/
 ```
 
-<<<<<<< HEAD
 Akun demo (mode simulasi):
 
 | Portal | Alamat | Email | Password |
@@ -34,9 +27,6 @@ Akun demo (mode simulasi):
 | Admin | `/admin/masuk` | nadia.admin@qcare.id (juga fajar.loket@qcare.id, rina.loket@qcare.id) | admin123 |
 
 Di halaman masuk pasien ada tombol "Isi otomatis"; di halaman masuk admin ada kartu "Masuk cepat akun demo". Data simulasi tersimpan di `localStorage` (`qcare_mock_db_v3`); hapus kunci itu untuk mengulang dari data awal.
-=======
-Akun demo (mode simulasi): **demo@qcare.id / password123**. Di halaman masuk juga ada tombol "Isi otomatis".
->>>>>>> 70022d6b3150e76b505d0f2f72b76916f9069b73
 
 ### Menyambungkan ke backend asli
 
@@ -48,11 +38,7 @@ Akun demo (mode simulasi): **demo@qcare.id / password123**. Di halaman masuk jug
    ```
 3. Restart `npm run dev`.
 
-<<<<<<< HEAD
 Kode halaman, slice, dan thunk tidak perlu diubah. Yang berganti hanya adapter Axios di `src/services/api.js` (pasien) dan `src/admin/api.js` (admin).
-=======
-Kode halaman, slice, dan thunk tidak perlu diubah. Yang berganti hanya adapter Axios di `src/services/api.js`.
->>>>>>> 70022d6b3150e76b505d0f2f72b76916f9069b73
 
 ---
 
@@ -80,10 +66,7 @@ src/
 ├── router/index.jsx
 ├── constants/patient.js          # kategori, kebutuhan khusus, encode/decode
 ├── utils/                        # format tanggal/rupiah, storage, status antrean
-<<<<<<< HEAD
 ├── admin/                        # PORTAL ADMIN (lihat bagian Portal admin)
-=======
->>>>>>> 70022d6b3150e76b505d0f2f72b76916f9069b73
 ├── ErrorBoundary.jsx
 ├── index.css                     # design tokens + seluruh style (mobile-first)
 └── main.jsx
@@ -151,7 +134,6 @@ Token warna diambil dari variables Figma (Primary `#0340DA`, Secondary `#16A6A1`
 
 ---
 
-<<<<<<< HEAD
 ## Portal admin
 
 Mengikuti file Figma **QCare → halaman Admin** (22 layar mobile, Inter + Plus Jakarta Sans, palet teal/slate). Di layar ≥ 1024 px navigasi bawah berubah menjadi sidebar kiri dan kartu tampil dalam grid.
@@ -229,8 +211,3 @@ Sesi admin disimpan terpisah dari sesi pasien, jadi kedua portal bisa dibuka di 
 Aplikasi di-build dan diklik otomatis di Chrome pada lebar 412 px (ukuran frame Figma) dan 1366 px, plus pengecekan tidak ada scroll horizontal di 320/390/768/1366 px. Skenario yang lolos: proteksi rute, validasi login & registrasi, registrasi → masuk, reset kata sandi via OTP, panduan pop-up, rekomendasi beranda, pencarian & filter katalog, detail fasilitas, layanan tidak tersedia → alternatif, data tidak valid → ditandai, ringkasan → buat antrean → tiket, kuota penuh → field tanggal ditandai, batalkan antrean, filter riwayat, edit profil (validasi & simpan), ukuran teks, logout, statistik pemantauan, serta mode backend asli (request ke `localhost:3000/api` dengan header Bearer).
 
 **Portal admin** diuji otomatis di 412 px dan 1366 px (43 pengecekan per ukuran): proteksi rute, validasi & salah password, dashboard, panggil → layani → selesai dengan catatan, pencarian antrean, registrasi loket → nomor terbit, ubah jadwal (nomor baru) & batalkan antrean, toggle jadwal Libur/Tersedia, validasi jam & tambah jadwal, filter pasien prioritas, tambah pasien → lanjut daftar antrean, detail/edit/hapus pasien (termasuk penolakan 409), aktif/nonaktif & tambah/hapus dokter, tambah/edit layanan, fasilitas → layanan, tambah fasilitas & penolakan hapus, riwayat + ekspor CSV, tambah admin, reset password admin lalu masuk dengan password baru, token kedaluwarsa → keluar otomatis, portal pasien tetap terpisah, dan tidak ada scroll horizontal di semua halaman admin. Mode backend asli juga dicek (body login, header Bearer, 401 → keluar).
-=======
-## Pengujian yang sudah dilakukan
-
-Aplikasi di-build dan diklik otomatis di Chrome pada lebar 412 px (ukuran frame Figma) dan 1366 px, plus pengecekan tidak ada scroll horizontal di 320/390/768/1366 px. Skenario yang lolos: proteksi rute, validasi login & registrasi, registrasi → masuk, reset kata sandi via OTP, panduan pop-up, rekomendasi beranda, pencarian & filter katalog, detail fasilitas, layanan tidak tersedia → alternatif, data tidak valid → ditandai, ringkasan → buat antrean → tiket, kuota penuh → field tanggal ditandai, batalkan antrean, filter riwayat, edit profil (validasi & simpan), ukuran teks, logout, statistik pemantauan, serta mode backend asli (request ke `localhost:3000/api` dengan header Bearer).
->>>>>>> 70022d6b3150e76b505d0f2f72b76916f9069b73
