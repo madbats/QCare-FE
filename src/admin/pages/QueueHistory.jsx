@@ -42,9 +42,9 @@ export default function QueueHistory() {
   const logs = useMemo(() => {
     const byAntrean = Object.fromEntries(antrean.map((a) => [String(a.id), a]));
     return riwayat
-      .filter((r) => FINAL.some((st) => sameStatus(st, r.status_antrean)) && inRange(r.created_at))
+      .filter((r) => FINAL.some((st) => sameStatus(st, r.status_antrean)) && inRange(r.waktu_perubahan))
       .map((r) => ({ ...r, antrean: byAntrean[String(r.antrean_id)] }))
-      .sort((a, b) => String(b.created_at).localeCompare(String(a.created_at)));
+      .sort((a, b) => String(b.waktu_perubahan).localeCompare(String(a.waktu_perubahan)));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [riwayat, antrean, dari, sampai]);
 
@@ -57,14 +57,14 @@ export default function QueueHistory() {
 
   const exportCsv = () => {
     const byAntrean = Object.fromEntries(antrean.map((a) => [String(a.id), a]));
-    const all = riwayat.filter((r) => inRange(r.created_at)).sort((a, b) => String(a.created_at).localeCompare(String(b.created_at)));
+    const all = riwayat.filter((r) => inRange(r.waktu_perubahan)).sort((a, b) => String(a.waktu_perubahan).localeCompare(String(b.waktu_perubahan)));
     const rows = [
       ['ID Log', 'Waktu (WIB)', 'Nomor Antrean', 'Tanggal Kunjungan', 'Pasien', 'Kategori', 'Layanan', 'Dokter', 'Status', 'Keterangan', 'Petugas'],
       ...all.map((r) => {
         const a = byAntrean[String(r.antrean_id)];
         return [
           r.id,
-          `${tanggalJakarta(r.created_at)} ${jamWib(r.created_at)}`,
+          `${tanggalJakarta(r.waktu_perubahan)} ${jamWib(r.waktu_perubahan)}`,
           a?.nomor_antrean ?? `#${r.antrean_id}`,
           a?.tanggal_kunjungan ?? '',
           a?.pasien?.nama_pasien ?? '',
@@ -145,7 +145,7 @@ export default function QueueHistory() {
                     {l.antrean?.layanan?.nama_layanan ?? '-'} · {l.antrean?.dokter?.nama_dokter ?? '-'}
                   </p>
                   <p className="a-muted xs">
-                    {tanggalPendek(l.created_at)} · {jamWib(l.created_at)} WIB
+                    {tanggalPendek(l.waktu_perubahan)} · {jamWib(l.waktu_perubahan)} WIB
                   </p>
                   <div className="a-log-note">
                     <span className="a-overline">CATATAN</span>
